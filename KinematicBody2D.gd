@@ -15,7 +15,4 @@ func _physics_process(delta):
 	if is_on_floor():
 		motion.x = lerp(motion.x, 0, 0.01);
 
-	if is_on_floor() && motion.y >= 0:
-		motion.y -= 500;
-
 	motion = move_and_slide(motion, Vector2.UP);
