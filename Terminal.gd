@@ -2,15 +2,28 @@ extends Control
 
 const WORKING_DIR = "jezza@bot:~$ ";
 
+# Gets called every 0.X seconds.
 var ticker = null;
+# Basically everything that's happened before now.
+# This stuff can't be changed, so we're keeping it in a seperate buffer.
 var history = "";
+# This is the stuff the user is actually typing.
 var buffer = "";
+# Just the current character for the blinking cursor.
+# It changes every 0.X % Y seconds.
 var cursor = "_"
 
+# The value that the label's text needs to be set to.
+# We do this in a roundabout way because we want to be able to control the cursor.
 var text = "";
+# How many ticks have happened since the start..
+# Currently not reset. (@TODO: reset this fucker...)
 var counter = 0;
+# How many lines are skipped in the history, when we start getting near the max_lines value.
 var skipped;
 
+# The exported variable that determines how big the _visible_ buffer is.
+# Smaller panels obviously have smaller buffers.
 export var max_lines = 34;
 
 func _ready():
@@ -62,10 +75,16 @@ func _on_Label_gui_input(event):
 
 func on_command(input):
 	var command = input[0];
+	
 	if command == "help":
 		return "You're basically fucked...\n"
 	elif command == "attach":
 		return "Installing...\nDone...\n"
+	elif command == "define":
+		if input.size() >= 2 and input[1] == "Dirk":
+			return "Definition: \"Dirk\" (noun):\nA German man commonly seen playing with his pussies.\n"
+		else:
+			return "Boop.\n";
 	else:
 		return str("Command not found: ", command, '\n')
 
