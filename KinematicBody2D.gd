@@ -31,14 +31,12 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, DRAG)
 	
 	motion = move_and_slide(motion, Vector2.UP, false, 4, 0.785398, false)
+	
+	#var pulse = Input.is_action_just_pressed("ui_accept");
+	
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.name.find("Wall") == -1:
-			
-			print("Collided with: ", collision.collider.name);
-
-
-
-func _on_PhysicsBall_body_entered(body):
-	print("Hello!")
-	pass
+		var collider = collision.collider;
+		if collider.name.find("Wall") == -1:
+			collider.apply_central_impulse(Vector2.UP);
+			#print("Collided with: ", collider);
