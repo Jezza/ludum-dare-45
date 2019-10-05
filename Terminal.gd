@@ -1,6 +1,6 @@
 extends Control
 
-const WORKING_DIR = "jezza@bot:~$ ";
+const PROMPT_STRING = "root@bot:~# ";
 
 # Gets called every 0.X seconds.
 var ticker = null;
@@ -33,7 +33,7 @@ func _ready():
 	label.max_lines_visible = max_lines;
 	skipped = -(max_lines - 1)
 	
-	text = WORKING_DIR
+	text = PROMPT_STRING
 	
 	ticker = Timer.new()
 	add_child(ticker)
@@ -60,7 +60,7 @@ func _on_timer_tick():
 func _on_Label_gui_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_ENTER:
-			history += WORKING_DIR + buffer + '\n'
+			history += PROMPT_STRING + buffer + '\n'
 			skipped += 1;
 			var output = on_command(buffer.split(" "));
 			skipped += count_chars(output, "\n");
@@ -71,13 +71,15 @@ func _on_Label_gui_input(event):
 		else:
 			buffer += char(event.unicode);
 		
-		text = history + WORKING_DIR + buffer;
+		text = history + PROMPT_STRING + buffer;
 
 func on_command(input):
 	var command = input[0];
 	
 	if command == "help":
-		return "You're basically fucked...\n"
+		return "Well, I probably shouldn't help you but: `let there be light`\n"
+	elif command == "create" or command == "start" or command == "run" or command == "play":
+		return "Let there be... a camera...\n"
 	elif command == "a" or command == "attach":
 		get_tree().change_scene("World.tscn");
 		return "Installing...\nDone...\n"

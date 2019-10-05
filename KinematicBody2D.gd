@@ -29,5 +29,16 @@ func _physics_process(delta):
 	else:
 		if friction:
 			motion.x = lerp(motion.x, 0, DRAG)
+	
+	motion = move_and_slide(motion, Vector2.UP, false, 4, 0.785398, false)
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.name.find("Wall") == -1:
+			
+			print("Collided with: ", collision.collider.name);
 
-	motion = move_and_slide(motion, Vector2.UP)
+
+
+func _on_PhysicsBall_body_entered(body):
+	print("Hello!")
+	pass
