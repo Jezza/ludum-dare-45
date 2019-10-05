@@ -78,7 +78,8 @@ func on_command(input):
 	
 	if command == "help":
 		return "You're basically fucked...\n"
-	elif command == "attach":
+	elif command == "a" or command == "attach":
+		get_tree().change_scene("World.tscn");
 		return "Installing...\nDone...\n"
 	elif command == "define":
 		if input.size() >= 2 and input[1] == "Dirk":
