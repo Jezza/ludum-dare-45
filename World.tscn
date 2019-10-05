@@ -1,0 +1,144 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[node name="World" type="Node"]
+
+[node name="Clicker" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 288, 192 )
+input_pickable = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clicker"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Clicker/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 224, 288 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 544, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall4/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall9" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 768, 352 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall9"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall9/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 352, 288 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall2/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall5" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 672, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall5/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall7" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 896, 352 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall7"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall7/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 288, 288 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall3/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall6" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 608, 448 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall6"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall6/CollisionShape2D"]
+texture = ExtResource( 2 )
+
+[node name="Wall8" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 832, 352 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall8"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Wall8/CollisionShape2D"]
+texture = ExtResource( 2 )
